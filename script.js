@@ -1,0 +1,67 @@
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.remove("hidden");
+    toast.classList.add("opacity-100");
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 3000);
+}
+function handleCopy() {
+    const upi = document.getElementById("upiID").innerText;
+    navigator.clipboard.writeText(upi);
+    showToast("UPI ID copied!");
+}
+function handleDownload() {
+    showToast("Wait");
+    setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = "assets/downloadQR.png";
+        link.download = "qr";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast("Downloaing.....");
+    }, 3000);
+}
+function handlePay() {
+    showToast("Opening UPI app(s)");
+    setTimeout(() => {
+        window.location.href = "upi://pay?pa=Q039600054@ybl&pn=Molla%20Riyajul%20Enterprise&mc=0000&mode=02&purpose=00";
+    }, 3000);
+}
+
+
+const paymentAddresses = {
+    paypal: 'https://paypal.me/mollariyajul', // Update Paypal value
+    binance: '452869087', // Update Binance Pay value
+    coffee: 'https://www.buymeacoffee.com/mollariyajul' // Update Buy me coffe value
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('paypal-address').textContent = paymentAddresses.paypal;
+    document.getElementById('binance-address').textContent = paymentAddresses.binance;
+    document.getElementById('coffee-address').textContent = paymentAddresses.coffee;
+});
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.remove("hidden");
+    toast.classList.add("opacity-100");
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 3000);
+}
+
+function copyPaymentAddress(method) {
+    const address = paymentAddresses[method];
+    if (!address) return;
+    if (method === 'paypal' || method === 'coffee') {
+        window.location.href = address;
+        return;
+    }
+    if (method === 'binance') {
+        navigator.clipboard.writeText(address);
+        showToast(`${method.charAt(0).toUpperCase() + method.slice(1)} copied!`);
+    }
+}
