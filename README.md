@@ -36,10 +36,10 @@ Built using **HTML**, **Tailwind CSS**, and **JavaScript**, this page is designe
 
 ---
 
-## 📷 Preview
+## 💸 Payment Method 
 
-- [India's Payment Method](https://i.ibb.co/qM1vSp8W/photo-2025-04-24-12-22-56-7496854170943619092.jpg)
-- [International Payment Method](https://i.ibb.co/KjtSHtnd/photo-2025-04-24-12-22-15-7496854003439894544.jpg)
+- [India's Payment Method](https://molla12.github.io/account/)
+- [International Payment Method](https://molla12.github.io/account/International.html)
 
 ---
 
